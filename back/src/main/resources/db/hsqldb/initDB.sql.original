@@ -9,16 +9,6 @@ DROP TABLE roles IF EXISTS;
 DROP TABLE users IF EXISTS;
 
 
-CREATE TABLE ofertas (
-  id_ofertas INTEGER IDENTITY PRIMARY KEY,
-  titulo VARCHAR(30) NOT NULL,
-  descripcion VARCHAR(200),
-  descuento DECIMAL NOT NULL,
-  fExpiracion DATE
- );
-
-
-
 CREATE TABLE vets (
   id         INTEGER IDENTITY PRIMARY KEY,
   first_name VARCHAR(30),
