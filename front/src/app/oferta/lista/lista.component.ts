@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { ServiceService} from '../service.service';
 
 @Component({
   selector: 'app-lista',
@@ -7,10 +7,14 @@ import { HttpClient } from 'selenium-webdriver/http';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-
-
+  lista;
+  constructor(private servicio: ServiceService) { }
 
   ngOnInit() {
+    this.servicio.getOfertas().subscribe(data=>{
+      this.lista=data;
+      
+    })
   }
 
 }

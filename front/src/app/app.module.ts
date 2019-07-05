@@ -42,8 +42,6 @@ import { EditarComponent } from './oferta/editar/editar.component';
 import { AnydirComponent } from './oferta/anydir/anydir.component';
 import { OfertaModule } from './oferta/oferta.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
