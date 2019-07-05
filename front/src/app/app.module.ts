@@ -40,7 +40,7 @@ import { ListaComponent } from './oferta/lista/lista.component';
 import { ListaValidadaComponent } from './oferta/lista-validada/lista-validada.component';
 import { EditarComponent } from './oferta/editar/editar.component';
 import { AnydirComponent } from './oferta/anydir/anydir.component';
-import { OfertaModule } from './/oferta.module';
+import { OfertaModule } from './oferta/oferta.module';
 
 
 @NgModule({
