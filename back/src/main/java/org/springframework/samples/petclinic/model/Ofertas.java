@@ -11,6 +11,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "ofertas")
 public class Ofertas extends BaseEntity {
@@ -22,9 +24,10 @@ public class Ofertas extends BaseEntity {
 	private String vcDescr;
 	@Column(name = "descuento")
 	private double vcDescu;
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	@Column(name = "f_expiracion")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy/MM/dd")
 	private Date vcFexp;
 
 	public Ofertas() {
