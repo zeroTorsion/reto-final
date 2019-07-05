@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.samples.petclinic.model.Ofertas;
 
 public interface OfertasRepository extends JpaRepository<Ofertas, Integer>{
-	@Query("Select o from ofertas o where vc_fexp>current_timestamp;")
+	@Query("Select o from Ofertas o where o.vc_fexp>current_timestamp")
 	public List<Ofertas> getListaOfertasActivas();
 }

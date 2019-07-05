@@ -23,10 +23,11 @@ public class OfertasController {
 	private OfertasService vc_ofertasService;
 	private static final String VIEWS_OFERTAS_CREATE_OR_UPDATE_FORM = "ofertas/createOrUpdateOfertasForm";
 	private  OfertasRepository  ofertas;
-	
+
+
 	@RequestMapping(value = "/ofertas", method = RequestMethod.GET)
 	public ResponseEntity<List<Ofertas>> getListaOfertas(){
-		
+
 		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.findAll(), HttpStatus.ACCEPTED);
 	}
 

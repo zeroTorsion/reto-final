@@ -4,18 +4,33 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "ofertas")
-public class Ofertas extends BaseEntity {
+public class Ofertas  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_ofertas")
+    protected Integer id;
 	@Column(name = "titulo")
 	@NotEmpty
 	private String vc_titulo;
 	@Column(name = "descripcion")
 	private String vc_descr;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Column(name = "descuento")
 	private double vc_descu;
 	@Column(name = "fExpiracion")
