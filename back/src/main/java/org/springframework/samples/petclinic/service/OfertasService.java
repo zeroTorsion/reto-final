@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class OfertasService  {
 	@Autowired
 	OfertasRepository vc_ofertasRepository;
-
+	
 	
 
 }
