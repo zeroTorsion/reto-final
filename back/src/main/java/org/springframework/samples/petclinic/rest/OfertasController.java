@@ -33,6 +33,18 @@ public class OfertasController {
 
 		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.findAll(), HttpStatus.ACCEPTED);
 	}
+	
+	@RequestMapping(value = "/ofertas/{idOferta}", method=RequestMethod.GET)
+	public ResponseEntity<Ofertas> findById(@PathVariable("id_oferta") Integer id){
+		Ofertas oferta = new Ofertas();
+		oferta = this.vc_ofertasService.findById(id);
+		if(oferta !=null)
+			return ResponseEntity.status(HttpStatus.OK).body(oferta);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	}
+
+	
 	@RequestMapping(value = "/ofertas/activas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Ofertas>> getListaOfertasActivas(){
 
