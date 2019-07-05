@@ -55,13 +55,13 @@ INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 INSERT INTO users(username,password,enabled) VALUES ('admin','admin', true);
 
 
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (1, 'Oferta_20', 'Descuento 20%', 20.0, '2019-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (2, 'Oferta_35', 'Descuento 35%', 35.0, '2019-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (3, 'Oferta_2mas1', 'Descuento 50%', 50.0, '2018-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (4, 'Oferta_SegundaRes', 'Por segunda linea hogar: 20%', 20.0, '2019-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (5, 'Oferta_Verano', 'Julio y Agosto: 15%', 15.0, '2019-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (6, 'Oferta_Paises', 'Fuera de Europa:10%', 10.0, '2018-08-02');
-INSERT INTO ofertas(id_ofertas, titulo, descricion, descuento, fExpiracion) VALUES (7, 'Churn', 'Fidelizacion clientes: 60%', 60.0, '2020-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (1, 'Oferta_20', 'Descuento 20%', 20.0, '2019-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (2, 'Oferta_35', 'Descuento 35%', 35.0, '2019-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (3, 'Oferta_2mas1', 'Descuento 50%', 50.0, '2018-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (4, 'Oferta_SegundaRes', 'Por segunda linea hogar: 20%', 20.0, '2019-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (5, 'Oferta_Verano', 'Julio y Agosto: 15%', 15.0, '2019-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (6, 'Oferta_Paises', 'Fuera de Europa:10%', 10.0, '2018-08-02');
+INSERT INTO ofertas(id_ofertas, titulo, descripcion, descuento, fExpiracion) VALUES (7, 'Churn', 'Fidelizacion clientes: 60%', 60.0, '2020-08-02');
 
 
 
