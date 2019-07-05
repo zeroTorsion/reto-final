@@ -13,63 +13,94 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "ofertas")
-public class Ofertas  {
+public class Ofertas extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_ofertas")
-    protected Integer id;
+    
 	@Column(name = "titulo")
 	@NotEmpty
-	private String vc_titulo;
+	private String vcTitulo;
 	@Column(name = "descripcion")
-	private String vc_descr;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	private String vcDescr;
 	@Column(name = "descuento")
-	private double vc_descu;
-	@Column(name = "fExpiracion")
-	private Date vc_fexp;
-	public String getVc_titulo() {
-		return vc_titulo;
-	}
-	public void setVc_titulo(String vc_titulo) {
-		this.vc_titulo = vc_titulo;
-	}
-	public String getVc_descr() {
-		return vc_descr;
-	}
-	public void setVc_descr(String vc_descr) {
-		this.vc_descr = vc_descr;
-	}
-	public double getVc_descu() {
-		return vc_descu;
-	}
-	public void setVc_descu(double vc_descu) {
-		this.vc_descu = vc_descu;
-	}
-	public Date getVc_fexp() {
-		return vc_fexp;
-	}
-	public void setVc_fexp(Date vc_fexp) {
-		this.vc_fexp = vc_fexp;
-	}
-	public Ofertas(String vc_titulo, String vc_descr, double vc_descu, Date vc_fexp) {
-		super();
-		this.vc_titulo = vc_titulo;
-		this.vc_descr = vc_descr;
-		this.vc_descu = vc_descu;
-		this.vc_fexp = vc_fexp;
-	}
+	private double vcDescu;
+	@Column(name = "f_expiracion")
+	private Date vcFexp;
+	
+
+
+	
 
 	public Ofertas() {
 		super();
 	}
+
+
+
+
+
+	public String getVcTitulo() {
+		return vcTitulo;
+	}
+
+
+
+
+
+	public void setVcTitulo(String vcTitulo) {
+		this.vcTitulo = vcTitulo;
+	}
+
+
+
+
+
+	public String getVcDescr() {
+		return vcDescr;
+	}
+
+
+
+
+
+	public void setVcDescr(String vcDescr) {
+		this.vcDescr = vcDescr;
+	}
+
+
+
+
+
+	public double getVcDescu() {
+		return vcDescu;
+	}
+
+
+
+
+
+	public void setVcDescu(double vcDescu) {
+		this.vcDescu = vcDescu;
+	}
+
+
+
+
+
+	public Date getVcFexp() {
+		return vcFexp;
+	}
+
+
+
+
+
+	public void setVcFexp(Date vcFexp) {
+		this.vcFexp = vcFexp;
+	}
+
+
+
+
 	
 	
 }
