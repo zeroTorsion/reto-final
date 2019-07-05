@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class OfertasService  {
 	}
 
 	public List<Ofertas> getListaOfertasActivas(){
-		return this.vc_ofertasRepository.getListaOfertasActivas();
+		return this.vc_ofertasRepository.getListaOfertasActivas(new Date());
 	}
 	
 }

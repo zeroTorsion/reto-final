@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.model.Ofertas;
 import org.springframework.samples.petclinic.repository.OfertasRepository;
@@ -25,10 +26,15 @@ public class OfertasController {
 	private  OfertasRepository  ofertas;
 
 
-	@RequestMapping(value = "/ofertas", method = RequestMethod.GET)
+	@RequestMapping(value = "/ofertas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<List<Ofertas>> getListaOfertas(){
 
 		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.findAll(), HttpStatus.ACCEPTED);
+	}
+	@RequestMapping(value = "/ofertas/activas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<Ofertas>> getListaOfertasActivas(){
+
+		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.getListaOfertasActivas(), HttpStatus.ACCEPTED);
 	}
 
 	@RequestMapping(value = "/api/ofertas", method = RequestMethod.POST)
