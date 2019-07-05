@@ -39,6 +39,8 @@ public class OfertasService  {
 		return this.vc_ofertasRepository.save(oferta);
 	}
 
-	
+	public List<Ofertas> getListaOfertasActivas(){
+		return this.vc_ofertasRepository.getListaOfertasActivas();
+	}
 	
 }
