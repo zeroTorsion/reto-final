@@ -5,6 +5,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServiceService {
+  of = {} as iOfertas;
+  
+  createOferta(vcTitulo: any, vcDescr: any, vcDescu: any, vcFexp: any) {
+    this.of.id = null;
+    
+    this.of.vcTitulo = vcTitulo;
+    this.of.vcDescr = vcDescr;
+    this.of.vcDescu = vcDescu;
+    this.of.vcFexp = vcFexp;
+    return this.http.post<iOfertas>('http://localhost:9966/petclinic/api/ofertas',this.of);
+  }
 
 
   constructor(private http: HttpClient) { }
@@ -14,8 +25,8 @@ export class ServiceService {
 }
 export interface iOfertas{
   id:number;
-  titulo:string;
-  descripcion:string;
-  descuento:number;
-  f_expiracion:Date;
+  vcTitulo:string;
+  vcDescr:string;
+  vcDescu:number;
+  vcFexp:Date;
 }

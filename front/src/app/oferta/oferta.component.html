@@ -12,22 +12,20 @@
           <th>fExpiracion</th>
         </tr>
         </thead>
-
         <tbody>
-        <tr *ngFor="let oferta of ofertas">
-          <td class="ownerFullName"><a routerLink="/oferta/{{oferta.id_oferta}}" routerLinkActive="active"
-                                       (click)="onSelect(owner)">{{oferta.id}} </a></td>
-          <td>{{oferta.titulo}}</td>
-          <td>{{oferta.Descripcion}}</td>
-          <td>{{oferta.Descuento}}</td>
-          <td>
-            {{oferta.f_expiracion}}
-        </td>
-        </tr>
+          <tr *ngFor="let oferta of lista">
+              <td>{{oferta.id}}</td>
+            <td>{{oferta.vcTitulo}}</td>
+            <td>{{oferta.vcDescr}}</td>
+            <td>{{oferta.vcDescu}}</td>
+            <td>
+              {{oferta.vcFexp}}
+          </td>
+          </tr>
         </tbody>
       </table>
       <div>
-        <button class="btn btn-default" (click)="addOwner()">Add Owner</button>
+        <button class="btn btn-default" (click)="addOferta()">Añadir oferta</button>
       </div>
     </div>
   </div>

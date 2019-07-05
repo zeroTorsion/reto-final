@@ -13,6 +13,7 @@ import org.springframework.samples.petclinic.model.Ofertas;
 import org.springframework.samples.petclinic.repository.OfertasRepository;
 import org.springframework.samples.petclinic.service.OfertasService;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class OfertasController {
 	@Autowired
 	private OfertasService vc_ofertasService;

@@ -51,5 +51,5 @@ export class OwnerListComponent implements OnInit {
   addOwner() {
     this.router.navigate(['/owners/add']);
   }
-
+  
 }

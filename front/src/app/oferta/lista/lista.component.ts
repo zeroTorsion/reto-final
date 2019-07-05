@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService} from '../service.service';
+import { ServiceService, iOfertas} from '../service.service';
 
 @Component({
   selector: 'app-lista',
@@ -8,13 +8,22 @@ import { ServiceService} from '../service.service';
 })
 export class ListaComponent implements OnInit {
   lista;
+  oferta = {} as iOfertas;
   constructor(private servicio: ServiceService) { }
 
   ngOnInit() {
+    this.rellenar();
+  }
+  crearOferta(oferta){
+    this.servicio.createOferta(oferta.vcTitulo,oferta.vcDescr,oferta.vcDescu,oferta.vcFexp).subscribe(data =>{
+      this.rellenar();
+      this.oferta = data;
+    })
+  }
+  rellenar(){
     this.servicio.getOfertas().subscribe(data=>{
       this.lista=data;
       
     })
   }
-
 }

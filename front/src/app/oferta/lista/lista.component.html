@@ -1,4 +1,19 @@
-<p>
-  lista works!
-  Esta funcionando Correctamente.
-</p>
+<tr *ngFor="let oferta of lista">
+  <td>{{oferta.titulo}}</td>
+  <td>{{oferta.Descripcion}}</td>
+  <td>{{oferta.Descuento}}</td>
+  <td>
+    {{oferta.f_expiracion}}
+</td>
+</tr>
+<form #ownerForm class="w3-container w3-card w3-light-blue w3-text-white w3-margin w3-padding w3-animate-zoom">
+    Titulo:<br>
+    <input class="w3-input " type="text" name="vcTitulo" required [(ngModel)]="oferta.vcTitulo"><br>
+    Descripcion:<br>
+    <input class="w3-input" type="text" name="vcDescr" required [(ngModel)]="oferta.vcDescr"><br>
+    Descuento:<br>
+    <input class="w3-input" type="number" name="vcDescu" required [(ngModel)]="oferta.vcDescu"><br>
+    Fecha Expiracion:<br>
+    <input class="w3-input" type="date" name="vcFexp" required [(ngModel)]="oferta.vcFexp"><br>
+    <button class="w3-margin" (click)="crearOferta(owner)">Crear oferta</button>
+    </form><br />
