@@ -13,6 +13,7 @@ import org.springframework.samples.petclinic.repository.OfertasRepository;
 import org.springframework.samples.petclinic.service.OfertasService;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class OfertasController {
 	private static final String VIEWS_OFERTAS_CREATE_OR_UPDATE_FORM = "ofertas/createOrUpdateOfertasForm";
 	private  OfertasRepository  ofertas;
 
-
+	
 	@RequestMapping(value = "/ofertas", method = RequestMethod.GET)
 	public ResponseEntity<List<Ofertas>> getListaOfertas(){
 
@@ -41,5 +42,28 @@ public class OfertasController {
             return "redirect:/ofertas/{ofertaId}";
         }
     }
+	
+	@RequestMapping(value = "/ofertas", method = RequestMethod.DELETE)
+	public ResponseEntity<Ofertas> deleteUser(@Valid Ofertas oferta,  @PathVariable("id_ofertas") int ofertaId) {
+		System.out.println("Buscando y borrando la oferta con id " + ofertaId);
+		//vc_ofertasService.findById(ofertaId);
+		if (oferta == null) {
+			System.out.println("No se puede borrar. Oferta con id " + ofertaId + " no encontrada.");
+			return new ResponseEntity<Ofertas>(HttpStatus.NOT_FOUND);
+		}
 
+		vc_ofertasService.delete(oferta);
+		return new ResponseEntity<Ofertas>(HttpStatus.NO_CONTENT);
+	}
+	
+	@RequestMapping(value="/api/ofertas/{idOferta}", method = RequestMethod.PUT)
+	public Ofertas update(@PathVariable("id_oferta") Integer id, @RequestBody Ofertas oferta) {
+		Ofertas conecta = this.vc_ofertasService.findById(id);
+		if(conecta != null) {
+			oferta.setId(conecta.getId());
+			return this.vc_ofertasService.save(oferta);
+		}
+		return null;
+
+	}
 }
