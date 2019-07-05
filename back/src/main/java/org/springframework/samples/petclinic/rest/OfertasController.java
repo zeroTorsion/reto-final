@@ -39,32 +39,42 @@ public class OfertasController {
 		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.getListaOfertasActivas(), HttpStatus.ACCEPTED);
 	}
 
-	@RequestMapping(value = "/api/ofertas", method = RequestMethod.POST)
-    public String processUpdateOwnerForm(@Valid Ofertas oferta, BindingResult result, @PathVariable("id_ofertas") int ofertaId) {
-        if (result.hasErrors()) {
-            return VIEWS_OFERTAS_CREATE_OR_UPDATE_FORM;
+	
+	
+
+
+	@RequestMapping(value = "/ofertas", method = RequestMethod.POST)
+    public ResponseEntity<List<Ofertas>> processCreationForm(@Valid Ofertas ofertas, BindingResult result) {
+        
+    	if (result.hasErrors()) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(null);
         } else {
-            oferta.setId(ofertaId);
-            this.ofertas.save(oferta);
-            return "redirect:/ofertas/{ofertaId}";
+            this.vc_ofertasService.save(ofertas);
+            return this.getListaOfertas();
         }
     }
+	    
 	
-	@RequestMapping(value = "/ofertas", method = RequestMethod.DELETE)
-	public ResponseEntity<Ofertas> deleteUser(@Valid Ofertas oferta,  @PathVariable("id_ofertas") int ofertaId) {
+	
+	
+	@RequestMapping(value = "/ofertas/{id_ofertas}", method = RequestMethod.DELETE)
+	public ResponseEntity<Ofertas> deleteUser(  @PathVariable("id_ofertas") int ofertaId) {
 		System.out.println("Buscando y borrando la oferta con id " + ofertaId);
-		//vc_ofertasService.findById(ofertaId);
+		Ofertas oferta =vc_ofertasService.findById(ofertaId);
 		if (oferta == null) {
 			System.out.println("No se puede borrar. Oferta con id " + ofertaId + " no encontrada.");
 			return new ResponseEntity<Ofertas>(HttpStatus.NOT_FOUND);
 		}
 
 		vc_ofertasService.delete(oferta);
-		return new ResponseEntity<Ofertas>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<Ofertas>(oferta, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/api/ofertas/{idOferta}", method = RequestMethod.PUT)
-	public Ofertas update(@PathVariable("id_oferta") Integer id, @RequestBody Ofertas oferta) {
+	
+	
+	
+	@RequestMapping(value="/ofertas/{idOferta}", method = RequestMethod.PUT)
+	public Ofertas update(@PathVariable("idOferta") Integer id, @RequestBody Ofertas oferta) {
 		Ofertas conecta = this.vc_ofertasService.findById(id);
 		if(conecta != null) {
 			oferta.setId(conecta.getId());
@@ -73,4 +83,5 @@ public class OfertasController {
 		return null;
 
 	}
+
 }
