@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.model.Ofertas;
-import org.springframework.samples.petclinic.repository.OfertasRepository;
 import org.springframework.samples.petclinic.service.OfertasService;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class OfertasController {
 	@Autowired
 	private OfertasService vc_ofertasService;
-	private static final String VIEWS_OFERTAS_CREATE_OR_UPDATE_FORM = "ofertas/createOrUpdateOfertasForm";
-	private  OfertasRepository  ofertas;
 
 
 
