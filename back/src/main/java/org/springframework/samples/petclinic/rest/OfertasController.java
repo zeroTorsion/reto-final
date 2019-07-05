@@ -26,13 +26,9 @@ public class OfertasController {
 	private static final String VIEWS_OFERTAS_CREATE_OR_UPDATE_FORM = "ofertas/createOrUpdateOfertasForm";
 	private  OfertasRepository  ofertas;
 
-<<<<<<< HEAD
+
 
 	@RequestMapping(value = "/ofertas", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-=======
-	
-	@RequestMapping(value = "/ofertas", method = RequestMethod.GET)
->>>>>>> 3510c33f7b5c2d70ff06eb3dff397c89bacc5968
 	public ResponseEntity<List<Ofertas>> getListaOfertas(){
 
 		return new ResponseEntity<List<Ofertas>>(vc_ofertasService.findAll(), HttpStatus.ACCEPTED);
