@@ -21,6 +21,6 @@ public class OfertasController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<List<Ofertas>> getListaOfertas(){
 		
-		return vc_ofertasService.g;
+		return null;
 	}
 }
