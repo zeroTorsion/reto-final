@@ -8,6 +8,6 @@ import org.springframework.samples.petclinic.model.Offer;
 public interface OfferService {
 	public List<Offer> getOffers();
 	public Offer getOfferById(Integer id);
-	public Offer addAlumno(Offer alumno);
+	public Offer addOffer(Offer alumno);
 	public boolean deleteOfferById(Integer id);
 }
