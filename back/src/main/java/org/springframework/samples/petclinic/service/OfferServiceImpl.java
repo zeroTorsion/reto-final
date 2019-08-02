@@ -28,7 +28,7 @@ public class OfferServiceImpl implements OfferService {
 	}
 	
 	@Override
-	public Offer addAlumno(Offer offer) {
+	public Offer addOffer(Offer offer) {
 		return repo.save(offer);
 	}
 
