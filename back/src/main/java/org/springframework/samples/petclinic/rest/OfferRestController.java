@@ -1,4 +1,4 @@
-package com.spring.repaso.repaso.controllers;
+package org.springframework.samples.petclinic.rest;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class OfferRestController {
 	}
 
 
-	@GetMapping("offers/{id}")
+	@GetMapping("ofertas/{id}")
 	public ResponseEntity<Offer> getOfferById(@PathVariable("id") Integer id) {
 		Offer offer = new Offer();
 		offer = srv.getOfferById(id);
@@ -41,7 +41,7 @@ public class OfferRestController {
 		}
 	}
 
-	@PostMapping("offers-add")
+	@PostMapping("oferta-add")
 	public ResponseEntity<Offer>addOffer(@RequestBody Offer offer) {
 		if (offer != null) {
 			if(offer.getId() != 0) {
@@ -53,7 +53,7 @@ public class OfferRestController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
 
-	@PutMapping("offers-update/{id}")
+	@PutMapping("oferta-update/{id}")
 	public ResponseEntity<Offer>updateAlumno(@PathVariable Integer id, @RequestBody Offer offer) {
 		Offer newOoffer = srv.getOfferById(id);
 		if (offer != null) {
