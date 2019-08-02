@@ -18,7 +18,7 @@ public class Offer extends BaseEntity{
 	@Column(name = "descount")
 	private Double descount;
 	
-	@Column(name = "expireDate")
+	@Column(name = "expiredate")
 	private Date expireDate;
 
 	public String getTitle() {
