@@ -6,8 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.samples.petclinic.rest.JacksonCustomOwnerDeserializer;
+import org.springframework.samples.petclinic.rest.JacksonCustomOwnerSerializer;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Entity
-@Table(name = "offer")
+@Table(name = "offers")
+@JsonSerialize(using = JacksonCustomOwnerSerializer.class)
+@JsonDeserialize(using = JacksonCustomOwnerDeserializer.class)
 public class Offer extends BaseEntity{
 	@Column(name = "title")
 	private String title;
@@ -15,8 +23,8 @@ public class Offer extends BaseEntity{
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "descount")
-	private Double descount;
+	@Column(name = "discount")
+	private Double discount;
 	
 	@Column(name = "expiredate")
 	private Date expireDate;
@@ -37,12 +45,12 @@ public class Offer extends BaseEntity{
 		this.description = description;
 	}
 
-	public Double getDescount() {
-		return descount;
+	public Double getDiscount() {
+		return discount;
 	}
 
-	public void setDescount(Double descount) {
-		this.descount = descount;
+	public void setDiscount(Double discount) {
+		this.discount = discount;
 	}
 
 	public Date getExpireDate() {
