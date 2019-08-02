@@ -18,19 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/offers")
 public class OfferRestController {
 
 	@Autowired
 	private OfferService srv;
 
-	@GetMapping("ofertas")
-	public List<Offer> getAlumnos(){
+	@GetMapping("offer")
+	public List<Offer> getOffers(){
 		return srv.getOffers();
 	}
 
 
-	@GetMapping("ofertas/{id}")
+	@GetMapping("offer/{id}")
 	public ResponseEntity<Offer> getOfferById(@PathVariable("id") Integer id) {
 		Offer offer = new Offer();
 		offer = srv.getOfferById(id);
@@ -41,7 +41,7 @@ public class OfferRestController {
 		}
 	}
 
-	@PostMapping("oferta-add")
+	@PostMapping("offer-add")
 	public ResponseEntity<Offer>addOffer(@RequestBody Offer offer) {
 		if (offer != null) {
 			if(offer.getId() != 0) {
@@ -53,10 +53,10 @@ public class OfferRestController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 	}
 
-	@PutMapping("oferta-update/{id}")
-	public ResponseEntity<Offer>updateAlumno(@PathVariable Integer id, @RequestBody Offer offer) {
+	@PutMapping("offer-update/{id}")
+	public ResponseEntity<Offer>updateOffer(@PathVariable Integer id, @RequestBody Offer offer) {
 		Offer newOoffer = srv.getOfferById(id);
-		if (offer != null) {
+		if (newOoffer != null) {
 			offer.setId(id);
 			return ResponseEntity.status(HttpStatus.OK).body(this.srv.addOffer(offer));
 		} else {
@@ -65,8 +65,8 @@ public class OfferRestController {
 	}
 
 	@DeleteMapping("offer-delete/{id}")
-	public ResponseEntity<Offer> borrarPorId(@PathVariable Integer id) {
-		System.out.print(id);
+	public ResponseEntity<Offer> deleteById(@PathVariable Integer id) {
+
 		Offer offer = srv.getOfferById(id);
 		if (offer != null) {
 			this.srv.deleteOfferById(id);
