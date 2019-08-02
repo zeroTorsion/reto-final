@@ -6,10 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.samples.petclinic.model.Offer;
+import org.springframework.samples.petclinic.repository.OfferRepository;
 import org.springframework.stereotype.Service;
 
-import com.spring.repaso.repaso.models.Alumno;
-import com.spring.repaso.repaso.repositorys.AlumnoRepository;
 
 @Service
 public class OfferServiceImpl implements OfferService {
@@ -27,21 +26,24 @@ public class OfferServiceImpl implements OfferService {
 		Optional<Offer> offer = repo.findById(id);
 		return offer.isPresent() ? offer.get() : null;
 	}
-
+	
 	@Override
-	public Offer addOffer(Offer offer) {
+	public Offer addAlumno(Offer offer) {
 		return repo.save(offer);
 	}
 
 	@Override
 	public boolean deleteOfferById(Integer id) {
-		boolean eliminado = false;
+
 		try {
 			repo.deleteById(id);
-			eliminado = true;
+			return true;
 		} catch (EmptyResultDataAccessException e) {
 			System.out.println("No se ha encontrado el profesor para eliminar");
-		}
+			return false;
+		} 
 	}
+
+
 
 }
