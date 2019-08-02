@@ -16,7 +16,7 @@ public class OfferServiceTest {
 	public void setUp() {
 		offer = new Offer();
 		offer.setTitle("Titulo de prueba");
-		offer.setDescount(10d);
+		offer.setDiscount(10d);
 		offer.setDescription("Descripción de prueba");
 	}
 	
