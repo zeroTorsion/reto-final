@@ -52,8 +52,14 @@ INSERT INTO visits VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 
+INSERT INTO offers VALUES (1, 'a', 'a', 10, '2013-01-04');
+INSERT INTO offers VALUES (2, 'b', 'b', 10, '2013-01-04');
+INSERT INTO offers VALUES (3, 'c', 'c', 10, '2013-01-04');
+
 INSERT INTO users(username,password,enabled) VALUES ('admin','admin', true);
 
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_OWNER_ADMIN');
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_VET_ADMIN');
 INSERT INTO roles (username, role) VALUES ('admin', 'ROLE_ADMIN');
+
+

@@ -14,6 +14,14 @@ CREATE TABLE vets (
   first_name VARCHAR(30),
   last_name  VARCHAR(30)
 );
+
+CREATE TABLE offers (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  title VARCHAR(30),
+  description  VARCHAR(30),
+  discount INTEGER,
+  expiredate DATE
+);
 CREATE INDEX vets_last_name ON vets (last_name);
 
 CREATE TABLE specialties (
